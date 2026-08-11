@@ -143,7 +143,7 @@ class BishengBuildExt(build_ext):
         compile_arch_flags = [
             "-x", "asc",
             f"--npu-arch={npu_arch}",
-            *(["--cce-auto-infer-kernel-type=false"] if parse(torch_npu.utils.get_cann_version()) >= parse("9.0.0") else []),
+            *(["--cce-auto-infer-kernel-type=false"] if parse(torch_npu.npu.utils.get_cann_version()) >= parse("9.0.0") else []),
             *extra_defines,
         ]
         # At link time only the target arch is needed (for device-code linking).
@@ -193,17 +193,16 @@ class BishengBuildExt(build_ext):
         self._toolchains[ext_name] = (compiler, compile_common, link_arch_flags, link_flags)
         return self._toolchains[ext_name]
 
-    def _build_aicpu_metadata(self, ext_fullpath):
-        """Compile fa_metadata.aicpu (host AICPU object) for the ascend910 v3 extension
-        (flash_attn_npu_3). This is a separate `bisheng -x aicpu` invocation
-        (host CPU code cross-compiled with hcc, not ASC device code); the
-        resulting object is linked into flash_attn_npu_3 alongside the ASC device
-        objects. Returns the .o path, or None if there is no aicpu source.
-        Preserved from main's metadata feature through the parallel-pipeline
-        refactor."""
+    def _build_aicpu_metadata(self, ext_fullpath, version_dir):
+        """Compile fa_metadata.aicpu (host AICPU object) for the given version
+        directory (e.g. 'flash_attn_npu_3' or 'flash_attn_npu_4'). This is a
+        separate `bisheng -x aicpu` invocation (host CPU code cross-compiled with
+        hcc, not ASC device code); the resulting object is linked into the
+        extension alongside the ASC device objects. Returns the .o path, or None
+        if there is no aicpu source."""
         ascend_home = os.getenv("ASCEND_TOOLKIT_HOME", os.getenv("ASCEND_HOME_PATH", "/usr/local/Ascend"))
-        v3_dir = os.path.join(this_dir, "csrc/ascend910", "flash_attn_npu_3")
-        aicpu_src = os.path.join(v3_dir, "fa_metadata.aicpu")
+        v_dir = os.path.join(this_dir, "csrc/ascend910", version_dir)
+        aicpu_src = os.path.join(v_dir, "fa_metadata.aicpu")
         if not os.path.exists(aicpu_src):
             return None
         aicpu_obj = os.path.join(os.path.dirname(ext_fullpath), "fa_metadata.o")
@@ -223,7 +222,7 @@ class BishengBuildExt(build_ext):
             "-D_FORTIFY_SOURCE=2",
             "-D_GNU_SOURCE",
             f"-I{aicpu_inc}",
-            f"-I{v3_dir}",  # tilingdata.h
+            f"-I{v_dir}",  # tilingdata.h, fa_metadata_args.h, fa_split.h
             f"--cce-aicpu-L{aicpu_lib}",
             "--cce-aicpu-laicpu_api",
             f"--cce-aicpu-toolkit-path={os.path.join(hcc, 'bin')}",
@@ -290,13 +289,19 @@ class BishengBuildExt(build_ext):
                 ext_name, obj = fut.result()
                 objs_by_ext[ext_name].append(obj)
 
-        # AICPU metadata object for the ascend910 v3 extension: compiled separately
-        # (host code, `bisheng -x aicpu`) and appended to that extension's link
-        # set. Built after the parallel ASC compiles, before linking.
+        # AICPU metadata object for the ascend910 v3 and v4 extensions: compiled
+        # separately (host code, `bisheng -x aicpu`) and appended to that
+        # extension's link set. Built after the parallel ASC compiles, before
+        # linking.
         for ext in self.extensions:
             if ext.name == "flash_attn_npu_3.flash_attn_npu_3":
                 ext_fullpath = self.get_ext_fullpath(ext.name)
-                aicpu_obj = self._build_aicpu_metadata(ext_fullpath)
+                aicpu_obj = self._build_aicpu_metadata(ext_fullpath, "flash_attn_npu_3")
+                if aicpu_obj is not None:
+                    objs_by_ext[ext.name].append(aicpu_obj)
+            elif ext.name == "flash_attn_npu_4.flash_attn_npu_4":
+                ext_fullpath = self.get_ext_fullpath(ext.name)
+                aicpu_obj = self._build_aicpu_metadata(ext_fullpath, "flash_attn_npu_4")
                 if aicpu_obj is not None:
                     objs_by_ext[ext.name].append(aicpu_obj)
 
