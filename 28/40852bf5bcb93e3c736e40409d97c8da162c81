@@ -1,0 +1,29 @@
+setup.py
+  h_f8b154b29efef6 146
+csrc/ascend910/flash_attn_npu_4/fa_metadata_args.h
+  s_f8b03884afb90a::t_d088e5f6fcbc82 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "2840852bf5bcb93e3c736e40409d97c8da162c81",
+  "prompts": {},
+  "humans": {
+    "h_4cbccb51321da6": {
+      "author": "xiu_ling_wang <wangxiuling2@h-partners.com>"
+    },
+    "h_f8b154b29efef6": {
+      "author": "xi <wangxiuling>"
+    }
+  },
+  "sessions": {
+    "s_f8b03884afb90a": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a6b43d08c82bfd8e15243a0",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "xiu_ling_wang <wangxiuling2@h-partners.com>"
+    }
+  }
+}
