@@ -209,8 +209,7 @@ mha_fwd(at::Tensor q,   // (b, s_q, h, d) or (total_q, h, d) if there is cu_seql
     }
     softmaxlse.fill_(std::numeric_limits<float>::infinity());
 
-    
-    if (scheduler_metadata_.has_value()) {
+if (scheduler_metadata_.has_value()) {
         auto schedMd = scheduler_metadata_.value();
         TORCH_CHECK(schedMd.dtype() == at::kByte, "scheduler_metadata must be a byte tensor");
         TORCH_CHECK(schedMd.is_contiguous(), "scheduler_metadata must be contiguous");
@@ -258,22 +257,27 @@ mha_fwd(at::Tensor q,   // (b, s_q, h, d) or (total_q, h, d) if there is cu_seql
             max_kv_seqlen = std::max(max_kv_seqlen, seqlens_k_cpu[i]);
         }
         tiling_cpu_ptr->set_maxKvSeqlen(static_cast<uint32_t>(max_kv_seqlen));
-        // causal=true is the same as causal=false when seqlen_q == 1 (decode).
-        if (seqlen_q == 1) {
-            is_causal = false;
-        }
-        const bool causal_flag = is_causal;
-        if (max_kv_seqlen > 0 && window_size_left >= max_kv_seqlen - 1) {
+        // Match GPU: both sides vs seqlen_k (not right vs Sq-1).
+        if (max_kv_seqlen > 0 && window_size_left >= max_kv_seqlen) {
             window_size_left = -1;
         }
-        if (seqlen_q > 0 && window_size_right >= seqlen_q - 1) {
+        if (max_kv_seqlen > 0 && window_size_right >= max_kv_seqlen) {
             window_size_right = -1;
         }
-        if (causal_flag) {
+        if (is_causal) {
             window_size_right = 0;
         }
         is_causal = (window_size_left < 0 && window_size_right == 0);
         is_local = (window_size_left >= 0 || window_size_right >= 0) && !is_causal;
+        // Match Tri Dao set_params_fprop: infinite local side → seqlen_k.
+        if (is_local) {
+            if (window_size_left < 0) {
+                window_size_left = max_kv_seqlen;
+            }
+            if (window_size_right < 0) {
+                window_size_right = max_kv_seqlen;
+            }
+        }
         if (is_local) {
             tiling_cpu_ptr->set_windowSizeLeft(window_size_left);
             tiling_cpu_ptr->set_windowSizeRight(window_size_right);
