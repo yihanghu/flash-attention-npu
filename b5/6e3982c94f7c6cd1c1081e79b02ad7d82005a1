@@ -1,0 +1,40 @@
+flash_attn_npu_4/flash_attn_npu_interface.py
+  s_c23b0a5fb090fd::t_7ed65ae4aa8ec1 704
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "b56e3982c94f7c6cd1c1081e79b02ad7d82005a1",
+  "prompts": {},
+  "humans": {
+    "h_2245394568ec5f": {
+      "author": "Voya <zhouyuanh>"
+    },
+    "h_4cbccb51321da6": {
+      "author": "xiu_ling_wang <wangxiuling2@h-partners.com>"
+    }
+  },
+  "sessions": {
+    "s_c23b0a5fb090fd": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a83b5d83247d272b59c3c57",
+        "model": "deepseek-V4-Pro"
+      },
+      "human_author": "Voya <zhouyuanh>",
+      "custom_attributes": {
+        "tool_type": "builtin",
+        "edit_kind": "file_edit",
+        "session_id": "6a83b5d83247d272b59c3c57",
+        "runtime_client": "trae-tob-git-ai",
+        "tool_use_id": "6a8415543247d272b59c3cdf",
+        "tool_id": "icube:applyChatSnapshotPatch",
+        "client_type": "ide",
+        "external_session_id": "6a83b5d83247d272b59c3c57",
+        "source_scene": "agent",
+        "dedupe_key": "6a83b5d83247d272b59c3c57:6a8415543247d272b59c3cdf:afterEdit:b7b65d02",
+        "operation_id": "6a8415543247d272b59c3cdf"
+      }
+    }
+  }
+}
