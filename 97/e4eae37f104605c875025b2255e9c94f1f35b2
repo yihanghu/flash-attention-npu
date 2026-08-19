@@ -1,0 +1,24 @@
+docs/v4_metadata_design.md
+  s_94b347a035e688::t_20493fd8e80d52 1-335
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "97e4eae37f104605c875025b2255e9c94f1f35b2",
+  "prompts": {},
+  "humans": {
+    "h_cecb62c15cf82c": {
+      "author": "yihanghu <710068327@qq.com>"
+    }
+  },
+  "sessions": {
+    "s_94b347a035e688": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a8269e00ffe1fd9e00e8de8",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "yihanghu <710068327@qq.com>"
+    }
+  }
+}
