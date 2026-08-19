@@ -1,0 +1,37 @@
+.github/workflows/npu_ci.yml
+  s_143f7ba3a17393::t_f3857e672209b3 243,275,368,371
+.github/workflows/npu_ci_full.yml
+  s_143f7ba3a17393::t_96a9850d8e602c 79,101,150,153
+.github/workflows/npu_ci_matrix.yml
+  s_143f7ba3a17393::t_37e717901755cd 54,69,128,131
+ci/cleanup_ci_containers.sh
+  s_143f7ba3a17393::t_81b5726b305567 1-39
+ci/run_ci_container.sh
+  s_143f7ba3a17393::t_ebf853ccf0e6c5 19,35,68-69,72,74,78,85,88,99-105,117,128,151-157
+ci/run_ci_matrix.sh
+  s_143f7ba3a17393::t_ef4ef4ecd76bdf 22,33,35-36,44-59,98-99,124-126,128,134-144,148,152,154,158,168-176
+tests/test_flash_attn_npu_v2.py
+  s_143f7ba3a17393::t_2ebe23e7bb5b1e 4-6,9-18
+tests/test_flash_attn_npu_v2_bwd.py
+  s_143f7ba3a17393::t_a27e564d3f38d0 23-25,32-35
+tests/test_flash_attn_npu_v3_graph.py
+  s_143f7ba3a17393::t_d8bbaf68cc35b8 7-9
+tests/test_flash_attn_npu_v3_metadata.py
+  s_143f7ba3a17393::t_fe4e133a01d392 7-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "e56ec294aac647fff4a4c5d9a5cff436f447e500",
+  "prompts": {},
+  "sessions": {
+    "s_143f7ba3a17393": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a8449ea0ffe1fd9e00e952c",
+        "model": "DeepSeek-V4-Flash__max"
+      },
+      "human_author": "yihanghu <710068327@qq.com>"
+    }
+  }
+}
