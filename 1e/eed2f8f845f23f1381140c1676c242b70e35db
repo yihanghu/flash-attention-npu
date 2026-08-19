@@ -1,0 +1,14 @@
+tests/test_flash_attn_npu_v4_metadata.py
+  h_cecb62c15cf82c 6-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "1eeed2f8f845f23f1381140c1676c242b70e35db",
+  "prompts": {},
+  "humans": {
+    "h_cecb62c15cf82c": {
+      "author": "yihanghu <710068327@qq.com>"
+    }
+  }
+}
