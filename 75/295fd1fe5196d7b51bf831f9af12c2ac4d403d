@@ -1,0 +1,14 @@
+setup.py
+  h_cecb62c15cf82c 200
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "75295fd1fe5196d7b51bf831f9af12c2ac4d403d",
+  "prompts": {},
+  "humans": {
+    "h_cecb62c15cf82c": {
+      "author": "yihanghu <710068327@qq.com>"
+    }
+  }
+}
