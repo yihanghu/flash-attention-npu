@@ -1,0 +1,71 @@
+setup.py
+  s_c23b0a5fb090fd::t_2b9980466ce1f6 277
+  s_c23b0a5fb090fd::t_96a757cddbd85a 279-283,285-288
+  s_c23b0a5fb090fd::t_c9f810dad131fc 394
+  s_c23b0a5fb090fd::t_a5acd1356dd4b9 278
+  s_c23b0a5fb090fd::t_61a13491845a0a 289-291
+  s_c23b0a5fb090fd::t_84f6f563cfbebd 395-397
+csrc/ascend910/flash_attn_npu/fa_metadata.aicpu
+  s_c23b0a5fb090fd::t_9a54a79af1db61 1-155
+csrc/ascend910/flash_attn_npu/fa_metadata_args.h
+  s_c23b0a5fb090fd::t_6e90b4620221ed 1-57
+csrc/ascend910/flash_attn_npu/fa_split.h
+  s_c23b0a5fb090fd::t_b7118e64466425 1-356
+csrc/ascend910/flash_attn_npu/flash_api.cpp
+  s_c23b0a5fb090fd::t_e6b5c13c417555 23-24,26-27,30-31,40,42,44-49,52-79,81-82,85-90,93-131,133-136,138,161-162,184-190,247-291,343,346,361,364,366,377,399,442,444-447,464,486-490,507-508,571-572,575-579,592-617,630,671,674,684-686,724-728,754-755,760-764,862-889,926,944,947,956-957,964-965,1009-1013,1260-1324,1333
+csrc/ascend910/flash_attn_npu/fwd_dispatch.hpp
+  s_c23b0a5fb090fd::t_61c5146e5dfb5e 9,14,16-18
+csrc/ascend910/flash_attn_npu/fwd_dispatch_impl.hpp
+  s_c23b0a5fb090fd::t_bbb4ff540a352d 12-17,33-42,71,73,76-77,79,82-83,85,91,93,97,99,103,105,110-111
+csrc/ascend910/flash_attn_npu/mha_fwd_kvcache.cpp
+  s_c23b0a5fb090fd::t_763341e40c6fd0 40,124,129,155,250-253,320,415,608,698,741,807,825,832,928,1004,1105-1107,1109,1115
+csrc/ascend910/flash_attn_npu/tilingdata.h
+  s_c23b0a5fb090fd::t_2dca6393d9e8d4 64,97,128
+csrc/ascend910/flash_attn_npu_3/fa_metadata.aicpu
+  s_c23b0a5fb090fd::t_4a8f4c87edf8c9 35,37,56-58,141-144
+csrc/ascend910/flash_attn_npu_3/fa_metadata_args.h
+  s_c23b0a5fb090fd::t_d05e3df2e56cd5 16-19,53-55
+csrc/ascend910/flash_attn_npu_3/flash_api.cpp
+  s_c23b0a5fb090fd::t_4b1746a426483e 6,14,45-96,102-129,131-135,334-354,356-357,652,655-656,675-684,699-701,707-709
+csrc/ascend910/flash_attn_npu_3/mha_fwd_kvcache.cpp
+  s_c23b0a5fb090fd::t_eb9834acb384ac 252-255,322
+flash_attn_npu/__init__.py
+  s_c23b0a5fb090fd::t_e01ee16907bbd3 21
+flash_attn_npu/flash_attn_npu_interface.py
+  s_c23b0a5fb090fd::t_b9cc989e08ba38 6,84-85,102,119-120,162,187,215,821-837,850,927-955,973,1512,1594-1602,1623-1633,1655,1658-1746
+flash_attn_npu_3/flash_attn_npu_interface.py
+  s_c23b0a5fb090fd::t_b80055c3af20f9 6,589-607,674,706-728,804,1111-1119,1137-1149,1188-1234,1248,1252,1271,1275,1277-1291
+tests/test_flash_attn_npu_v2_metadata.py
+  s_c23b0a5fb090fd::t_a047cd15cf8b51 1-894
+tests/test_flash_attn_npu_v3_metadata.py
+  s_c23b0a5fb090fd::t_6e18e2c955de5f 51-77,91-93,108-110,137-138,144,146,164-165,173-174,195-196,207-208,252-268,274-275,292,316-317,344,494-999
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "10ca1afbdf9173a09475734ffdc7fb186a55add5",
+  "prompts": {},
+  "sessions": {
+    "s_c23b0a5fb090fd": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a83b5d83247d272b59c3c57",
+        "model": "deepseek-V4-Pro"
+      },
+      "human_author": "yihanghu <710068327@qq.com>",
+      "custom_attributes": {
+        "runtime_client": "trae-tob-git-ai",
+        "client_type": "ide",
+        "dedupe_key": "6a83b5d83247d272b59c3c57:6a8657d5a9b8a709c2671466:afterEdit:38575add",
+        "edit_kind": "file_edit",
+        "operation_id": "6a8657d5a9b8a709c2671466",
+        "session_id": "6a83b5d83247d272b59c3c57",
+        "source_scene": "agent",
+        "external_session_id": "6a83b5d83247d272b59c3c57",
+        "tool_type": "builtin",
+        "tool_use_id": "6a8657d5a9b8a709c2671466",
+        "tool_id": "icube:applyChatSnapshotPatch"
+      }
+    }
+  }
+}
