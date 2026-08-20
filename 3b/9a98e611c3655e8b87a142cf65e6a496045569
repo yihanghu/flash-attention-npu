@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "3b9a98e611c3655e8b87a142cf65e6a496045569",
+  "prompts": {},
+  "humans": {
+    "h_cecb62c15cf82c": {
+      "author": "yihanghu <710068327@qq.com>"
+    }
+  }
+}
