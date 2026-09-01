@@ -1,0 +1,33 @@
+{
+  "cases_per_interface": 200,
+  "dtype_quota": {
+    "fp16": 100,
+    "bf16": 100
+  },
+  "interfaces": {
+    "flash_attn_func_v2": {
+      "file": "all_flash_attn_func_v2.json",
+      "sha256": "16ef274a5622c1232754a23c6a0cd43ac0f07ad2a806d0f4a0db4716921d8738"
+    },
+    "flash_attn_func_v3": {
+      "file": "all_flash_attn_func_v3.json",
+      "sha256": "c0f3d70bc3534264460f4998d143fe096bc1a0c68b385f50e5bfd2b24972b32b"
+    },
+    "flash_attn_varlen_func_v2": {
+      "file": "all_flash_attn_varlen_func_v2.json",
+      "sha256": "ce934a9dcef581cc0c57bf6aebd4d10d128f606b5b882a96c9e3e7b9c5dc33d7"
+    },
+    "flash_attn_varlen_func_v3": {
+      "file": "all_flash_attn_varlen_func_v3.json",
+      "sha256": "1796cce0248c4eb6dcb44c11e52d51ec3b950878a33a0958e13d51f2b01b68ac"
+    },
+    "flash_attn_with_kvcache_v2": {
+      "file": "all_flash_attn_with_kvcache_v2.json",
+      "sha256": "a181096c29933179f58114273e9d4f696be0a0312e66e27e913b40eb2342a0f2"
+    },
+    "flash_attn_with_kvcache_v3": {
+      "file": "all_flash_attn_with_kvcache_v3.json",
+      "sha256": "1c8ce0455bbe0569b4dffa9e3b519db317d3708bc3596002767beb5d6e6ea39b"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[2026-08-31 11:03:17,489] [INFO] [MainProcess] [3546217] [decorators.py:34]  flash_attn_func_v4_constraints is already registered, repeated registration will coverage it, new module path is generate_flash_attn_func_v4
+[2026-08-31 11:03:17,957] [INFO] [MainProcess] [3546217] [decorators.py:34]  Extra cases with amount: {'scalar': 0, 'lower_border': 0, 'upper_border': 0, 'empty': 0, 'infnan': 0}
+[2026-08-31 11:03:17,970] [INFO] [MainProcess] [3546217] [decorators.py:34]  Generate Case cost time: 0.4368 s
+[2026-08-31 11:03:17,970] [INFO] [MainProcess] [3546217] [decorators.py:34]  Case Metrics: {'oversize_case': False, 'shape_intervals': [[0, 1.0]], 'case_repetition_rate': 0.0, 'result': True}
+[2026-08-31 11:03:18,050] [INFO] [MainProcess] [3546217] [decorators.py:34]  save case json file: result/flash_attn_func_v4/json/all_flash_attn_func_v4.json
+[2026-08-31 11:03:18,330] [INFO] [MainProcess] [3546217] [decorators.py:34]  save case excel file: result/flash_attn_func_v4/excel/flash_attn_func_v420260831110317.xlsx
+[2026-08-31 11:03:18,376] [INFO] [MainProcess] [3546217] [decorators.py:34]  save case csv file: result/flash_attn_func_v4/csv/flash_attn_func_v4.csv
